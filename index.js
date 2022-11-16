@@ -6,17 +6,17 @@ console.log(`Hey there ${name}`);
 
 //var process = require('process');
 var readline = require('readline');
-// function between(min, max) {  
-  // return Math.floor(
-    // Math.random() * (max - min + 1) + min
-  // )
-// }
-// console.log(  
-  // between(10, 200)
-// )
+ function randomNumber(min, max) {  
+  return Math.floor(
+    Math.random() * (max - min + 1) + min
+  )
+}
+console.log(  
+  randomNumber(1, 2)
+ )
 
 
-var randomNumber = Math.round(Math.random() * 3);
+// var randomNumber = Math.round(Math.random() * 3);
 var lives = 5;
 
 var terminal = readline.createInterface(
@@ -30,17 +30,17 @@ terminal.prompt();
 terminal.on('line', function(answer) {
   var answerNum = parseInt(answer);
 
-  if (answerNum > randomNumber) {
+  if (answerNum > randomNumber(1,2)) {
     console.log('Too high!');
     console.log('You have ' + lives + ' lives left');
   }
 
-  else if (answerNum < randomNumber) {
+  else if (answerNum < randomNumber(1,2)) {
     console.log('Too low!');
     console.log('You have ' + lives + ' lives left');
   }
 
-  else if (answerNum === randomNumber) {
+  else if (answerNum === randomNumber(1,2)) {
     console.log('W I N N E R ! ! !');
     console.log('You lost only ' + (6 - lives) + ' lives');
     process.exit(0);
